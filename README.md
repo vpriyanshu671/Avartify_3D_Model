@@ -20,11 +20,13 @@ In this project take a reference from Talking Head git repo , made a better UI ,
 
 ### For now API will not work , as I removed api keys if u explore my git repo contact me i will guide you
 
-![image](https://github.com/vpriyanshu671/avartifyschool/assets/112311383/b7723f94-4962-4602-af8e-51eb9bff9464)
+![Screenshot 2024-02-14 202535](https://github.com/vpriyanshu671/Avartify_3D_Model/assets/112311383/16dddda1-fc8e-4b6b-b866-20014e436126)
 
-![image](https://github.com/vpriyanshu671/avartifyschool/assets/112311383/338edd8c-cc4e-48c3-a5c2-fc8a88f48934)
+![Screenshot 2024-02-14 202741](https://github.com/vpriyanshu671/Avartify_3D_Model/assets/112311383/eb03136a-9646-44f9-aff8-6cf64566651a)
 
-![image](https://github.com/vpriyanshu671/avartifyschool/assets/112311383/e2d2dd22-a946-4a1a-ad22-8446e0369612)
+![Screenshot 2024-02-14 202833](https://github.com/vpriyanshu671/Avartify_3D_Model/assets/112311383/fc4a4036-50eb-4b6c-8f3d-07d32c681563)
+
+
 
 
 
