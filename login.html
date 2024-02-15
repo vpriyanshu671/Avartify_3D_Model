@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatarify</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(#91c4df,#6a8ea1,#7399af,#91c4df);
+        }
+
+        .container {
+            width: 20rem;
+            margin: 1rem;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 1.2rem;
+            box-shadow: 0;
+        }
+
+        .container a {
+            text-decoration: none;
+        }
+
+        .logo {
+            background-color: #658699;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            gap: 7px;
+            padding: 10px;
+            margin-bottom: 0.3rem;
+        }
+
+        .logo:hover {
+            cursor: pointer;
+        }
+
+        .container h2 {
+            margin-bottom: 0.7rem;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container form label {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .container form input,
+        .container form select {
+            border-radius: 10px;
+            width: 16rem;
+            outline: none;
+            padding: 5px 10px;
+            margin-bottom: 1rem;
+            border: 1px solid rgb(133, 129, 129);
+        }
+
+        button {
+            border: none;
+            color: #fff;
+            margin: 1rem 0;
+            font-size: 18px;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5rem;
+            background: linear-gradient(to right, #57788a, #96b7c9);
+        }
+
+        .newUser span {
+            color: rgb(25, 176, 176);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="./index.html">
+            <div class="logo">
+                <img src="favicon.png" alt="logo" width="50" height="50">
+                <!-- <h1>Avatarify</h1> -->
+            </div>
+        </a>
+        <h2> Login </h2>
+        <form method="post" class="form" onsubmit="handleLogin(); return false;">
+            <label for="userId"><span> Email: </span></label>
+            <input type="text" name="username" id="userId" required placeholder="user@email.com">
+
+            <label for="password"><span> Password: </span></label>
+            <input type="password" name="username" id="password" required placeholder="●●●●●●●●●●">
+
+            <label for="role"><span> Role: </span></label>
+            <select name="role" id="role">
+                <option value="select" selected disabled>---select---</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="newUser">
+
+            Not a member? <span><a href="./signup.html"> Signup now </a></span>
+        </p>
+    </div>
+
+    <script>
+        function handleLogin() {
+            var email = document.getElementById('userId').value;
+            var password = document.getElementById('password').value;
+            var role = document.getElementById('role').value;
+
+            if (!email || !password || role === 'select') {
+                alert('Please select your role');
+                return;
+            }
+
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+
+            var user = users.find(function (u) {
+                return u.email === email && u.password === password;
+            });
+
+            if (user) {
+                document.cookie = `userId=${user.email}; path=/; SameSite=None; Secure`;
+
+                if (user.role === 'admin' && role === 'admin') {
+                    alert('Login successful! Redirecting to admin page.');
+                    window.location.href = './admin.html';
+                } else if (user.role === 'user' && role === 'user') {
+                    alert('Login successful! Redirecting to home page.');
+                    window.location.href = './index.html';
+                } else {
+                    alert('Invalid role selected');
+                }
+            } else {
+                alert('Invalid email or password');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
